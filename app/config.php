@@ -5,7 +5,7 @@ return [
     "db"=>[
         "host"=>"localhost",
         "name"=>"social_network",
-        "user"=>"root",
-        "password"=>""
+        "user"=>"polaznik20",
+        "password"=>"Inc00PAk."
     ]
 ];

@@ -8,6 +8,8 @@ ini_set('display_errors', 1);
 $includePaths = implode(PATH_SEPARATOR, array(
     BP . 'app/model',
     BP . 'app/controller',
+    BP . 'app/model/entity'
+
 ));
 
 set_include_path($includePaths);

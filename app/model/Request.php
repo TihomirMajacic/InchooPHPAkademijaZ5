@@ -17,4 +17,7 @@ class Request
             return '';
         }
     }
+    public static function post($key, $default=""){
+        return isset($_POST[$key] ) ? $_POST[$key]:$default;
+    }
 }
