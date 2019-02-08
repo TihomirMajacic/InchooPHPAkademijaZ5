@@ -6,7 +6,7 @@
 <?php endif; ?>
 
 <cite><?= htmlspecialchars($post->getUser()) ?></cite>  <?php echo $post->date ?>
-<p><?= htmlspecialchars($post->getContent()) ?></p> Likes: <?php echo $post->getLikes() ?>
+<p><?= $post->getContent() ?></p> Likes: <?php echo $post->getLikes() ?>
 
 
 <h3>Comments</h3>

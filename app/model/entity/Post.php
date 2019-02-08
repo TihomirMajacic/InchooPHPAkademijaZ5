@@ -49,7 +49,11 @@ class Post
 
         return $this;
     }
-
+    public static function conv($str){
+        $regex = '/#+[a-zA-z0-9_]+/';
+        $str = preg_replace($regex, '<a href="#">$0</a>', $str);
+        return($str);
+    }
     public static function all()
     {
 
@@ -74,14 +78,17 @@ class Post
             $statement->execute();
             $comments = $statement->fetchAll();
 
+
+
             $list[] = new Post($post->id, $post->content, $post->user,$post->date,$post->likes,$comments,0);
-            // $list[] = $post;
+
         }
-        //   $time2 = microtime(true);
-        // echo $time2-$time;
+
 
         return $list;
     }
+
+
 
 
     public static function allinone()
@@ -139,6 +146,7 @@ class Post
         $statement->execute();
         $comments = $statement->fetchAll();
 
+        $post->content =Post::conv($post->content);
         return new Post($post->id, $post->content, $post->user, $post->date,$post->likes, $comments,$post->userid);
     }
 }
