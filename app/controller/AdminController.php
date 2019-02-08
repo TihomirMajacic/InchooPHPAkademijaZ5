@@ -23,11 +23,10 @@ class AdminController
     {
 
         $db = Db::connect();
-        $statement = $db->prepare("insert into user (firstname,lastname,email,pass,image) values (:firstname,:lastname,:email,:pass,:image)");
+        $statement = $db->prepare("insert into user (firstname,lastname,email,pass) values (:firstname,:lastname,:email,:pass)");
         $statement->bindValue('firstname', Request::post("firstname"));
         $statement->bindValue('lastname', Request::post("lastname"));
         $statement->bindValue('email', Request::post("email"));
-        $statement->bindValue('image', Request::post("image"));
         $statement->bindValue('pass', password_hash(Request::post("pass"),PASSWORD_DEFAULT));
         $statement->execute();
 

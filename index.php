@@ -17,8 +17,12 @@ set_include_path($includePaths);
 spl_autoload_register(function ($class) {
 
     $classPath = strtr($class, '\\', DIRECTORY_SEPARATOR) . '.php';
-
-    return include $classPath;
+    if ($file=stream_resolve_include_path($classPath))
+    {
+        include $file;
+        return true;
+    }
+        return false;
 });
 
 App::start();

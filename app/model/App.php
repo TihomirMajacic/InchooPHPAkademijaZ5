@@ -44,7 +44,7 @@ final class App
     }
         public static function config($key)
         {
-            $config = include BP.'app/config.php';
+            $config = include BP .'app/config.php';
             return $config[$key];
         }
 }

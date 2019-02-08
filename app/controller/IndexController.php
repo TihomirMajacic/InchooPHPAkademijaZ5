@@ -45,7 +45,7 @@ class IndexController
     {
         $required = ['content'];
 
-        //validate required keys
+
         foreach ($required as $key) {
             if (!isset($data[$key])) {
                 return false;
